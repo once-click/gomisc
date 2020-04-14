@@ -37,7 +37,11 @@ func TimeStr2StampStr(s string) string {
 	return strconv.FormatInt(t.Unix(), 10)
 }
 
-func TimeStamp2Str(t int64) string {
-	tm := time.Unix(t, 0)
+func TimeStampStr2Str(s string) string {
+	i64, err := strconv.ParseInt(s, 10, 64)
+	if err != nil {
+		return nil
+	}
+	tm := time.Unix(i64, 0)
 	return tm.Format("2006-01-02 15:04:05")
 }
