@@ -40,7 +40,7 @@ func TimeStr2StampStr(s string) string {
 func TimeStampStr2Str(s string) string {
 	i64, err := strconv.ParseInt(s, 10, 64)
 	if err != nil {
-		return nil
+		return ""
 	}
 	tm := time.Unix(i64, 0)
 	return tm.Format("2006-01-02 15:04:05")
