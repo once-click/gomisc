@@ -31,7 +31,7 @@ func Float64ToByte(f float64) []byte {
 	return bytes
 }
 
-func TimeStr2Stamp(s string) int64 {
+func TimeStr2StampStr(s string) string {
 	//t, _ := time.Parse("2006-01-02 15:04:05", time.Now().Format("2006-01-02 15:04:05"))
 	t, _ := time.Parse("2006-01-02 15:04:05", s)
 	return strconv.FormatInt(t.Unix(), 10)
