@@ -3,6 +3,8 @@ package gomisc
 import (
 	"encoding/binary"
 	"math"
+	"strconv"
+	"time"
 )
 
 func ByteToFloat32(b []byte) float32 {
@@ -27,4 +29,15 @@ func Float64ToByte(f float64) []byte {
 	bytes := make([]byte, 8)
 	binary.LittleEndian.PutUint64(bytes, bits)
 	return bytes
+}
+
+func TimeStr2Stamp(s string) int64 {
+	//t, _ := time.Parse("2006-01-02 15:04:05", time.Now().Format("2006-01-02 15:04:05"))
+	t, _ := time.Parse("2006-01-02 15:04:05", s)
+	return strconv.FormatInt(t.Unix(), 10)
+}
+
+func TimeStamp2Str(t int64) string {
+	tm := time.Unix(t, 0)
+	return tm.Format("2006-01-02 15:04:05")
 }
